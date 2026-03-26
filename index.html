@@ -13,23 +13,32 @@
 body { margin:0; font-family:'Poppins'; overflow-x:hidden; }
 html { scroll-behavior:smooth; }
 
-/* ENTRY */
-#entry-screen{
-  position:fixed; width:100%; height:100vh;
-  background:black; color:white;
-  display:flex; justify-content:center; align-items:center;
-  z-index:9999; cursor:pointer; text-align:center;
-}
-
 /* HERO */
 .hero{
   background:url('./assets/images/Edited-55.JPG.jpeg') no-repeat center/cover;
-  height:100vh; position:relative;
+  height:80vh; position:relative;
 }
 .hero::after{
   content:""; position:absolute;
   width:100%; height:100%;
   background:rgba(0,0,0,0.4);
+}
+
+/* HERO TEXT */
+.hero-text{
+  position:absolute;
+  color:white;
+  text-align:center;
+  animation: fadeInUp 2s ease;
+}
+.hero-text h1{
+  font-family:'Great Vibes';
+  font-size:50px;
+}
+.hero-text p{
+  font-size:16px;
+  margin-top:10px;
+  letter-spacing:1px;
 }
 
 /* Scroll */
@@ -45,12 +54,12 @@ html { scroll-behavior:smooth; }
 }
 
 /* Section */
-.section{ padding:60px 20px; text-align:center; }
+.section{ padding:10px 20px; text-align:center; }
 
 /* Names */
-.mainname{ display:flex; justify-content:center; gap:10px; }
+.mainname{ display:flex; justify-content:center; gap:10px; align-items: center; }
 .mainname h1{ font-family:'Great Vibes'; font-size:42px; }
-.mainname span{ color:#c59d5f; }
+.mainname span{ font-family:'Great Vibes';color:#c59d5f; }
 
 /* Countdown */
 .count-box{ display:flex; justify-content:center; gap:10px; }
@@ -89,6 +98,10 @@ html { scroll-behavior:smooth; }
   display:none; justify-content:center; align-items:center;
 }
 #lightbox img{ max-width:90%; }
+#lightbox span{
+  position:absolute; top:20px; right:20px;
+  color:white; font-size:30px; cursor:pointer;
+}
 
 /* Map */
 iframe{ filter:invert(90%) hue-rotate(180deg); }
@@ -100,6 +113,7 @@ iframe{ filter:invert(90%) hue-rotate(180deg); }
   padding:10px; border-radius:20px;
   cursor:pointer;
 }
+.music-btn:hover{ background:#c59d5f; }
 
 /* Mobile */
 @media(max-width:768px){
@@ -110,11 +124,6 @@ iframe{ filter:invert(90%) hue-rotate(180deg); }
 
 <body>
 
-<!-- ENTRY -->
-<div id="entry-screen">
-  <h1 style="font-family:'Great Vibes'">Harsh 💖 Priyanka</h1>
-</div>
-
 <!-- AUDIO -->
 <audio id="music" loop>
   <source src="./assets/audio/Ullam Paadum - Wedding Song _ 2 States.mp3">
@@ -123,7 +132,12 @@ iframe{ filter:invert(90%) hue-rotate(180deg); }
 <div class="music-btn" onclick="toggleMusic()">🎵</div>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="scrolldown">
+
+  <div class="hero-text">
+    <p>wo souls, one heart… beginning a lifetime of love together. 💖</p>
+  </div>
+
   <div class="scroll-down">↓</div>
 </section>
 
@@ -186,7 +200,10 @@ iframe{ filter:invert(90%) hue-rotate(180deg); }
 </section>
 
 <!-- LIGHTBOX -->
-<div id="lightbox"><img id="lightbox-img"></div>
+<div id="lightbox">
+  <span onclick="closeLightbox()">✖</span>
+  <img id="lightbox-img">
+</div>
 
 <!-- MAP -->
 <section class="section">
@@ -199,34 +216,50 @@ iframe{ filter:invert(90%) hue-rotate(180deg); }
 <script>
 AOS.init();
 
-// ENTRY MUSIC
-const entry=document.getElementById("entry-screen");
 const music=document.getElementById("music");
-entry.onclick=()=>{ music.play(); entry.style.display="none"; }
 
-// TOGGLE
-function toggleMusic(){ music.paused?music.play():music.pause(); }
+// play music on first click
+document.body.addEventListener("click", function () {
+  music.play();
+}, { once: true });
 
-// COUNTDOWN
+// toggle music
+function toggleMusic(){
+  music.paused ? music.play() : music.pause();
+}
+
+// countdown
 const target=new Date("May 13, 2026").getTime();
 setInterval(()=>{
   let diff=target-new Date().getTime();
+
+  if(diff<0){
+    document.querySelector(".count-box").innerHTML="🎉 It's Wedding Time!";
+    return;
+  }
+
   days.innerHTML=Math.floor(diff/(1000*60*60*24))+"d";
   hours.innerHTML=Math.floor((diff/(1000*60*60))%24)+"h";
   minutes.innerHTML=Math.floor((diff/(1000*60))%60)+"m";
   seconds.innerHTML=Math.floor((diff/1000)%60)+"s";
 },1000);
 
-// LIGHTBOX
+// lightbox
 document.querySelectorAll(".gallery img").forEach(img=>{
   img.onclick=()=>{
     document.getElementById("lightbox").style.display="flex";
     document.getElementById("lightbox-img").src=img.src;
   }
 });
-document.getElementById("lightbox").onclick=()=>{
+
+function closeLightbox(){
   document.getElementById("lightbox").style.display="none";
-};
+}
+
+// scroll
+document.getElementById("scrolldown").addEventListener("click", function () {
+  window.scrollTo({ top: 500, behavior: "smooth" });
+});
 </script>
 
 </body>
