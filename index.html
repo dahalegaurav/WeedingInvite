@@ -28,48 +28,40 @@
         }
 
         h1, h2, h3 { font-family: 'Cinzel', serif; color: var(--gold); }
-        .cursive { font-family: 'Great+Vibes', cursive; font-size: 3rem; color: var(--gold); }
+        .cursive { font-family: 'Great Vibes', cursive; font-size: 3rem; color: var(--gold); }
 
-        /* Section Styling */
         section { padding: 60px 20px; max-width: 800px; margin: 0 auto; }
 
         /* Header & Religious Icons */
-        .ganpati-icon { width: 80px; margin-bottom: 10px; filter: drop-shadow(0 0 5px var(--gold)); }
-        .mantra { font-size: 0.9rem; letter-spacing: 2px; color: var(--gold); margin-bottom: 30px; }
-
-        /* Intro Section */
-        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
-        .hashtag { font-weight: 600; font-size: 1.2rem; color: var(--gold); margin-top: 15px; }
+        .Landingimage img { width: 100%; max-height: 400px; object-fit: cover; border-radius: 0 0 50px 50px; border-bottom: 3px solid var(--gold); }
+        .ganpatilogo img { width: 100px; margin-top: -50px; filter: drop-shadow(0 0 10px var(--gold)); position: relative; z-index: 10; }
+        .mantra { font-size: 0.9rem; letter-spacing: 2px; color: var(--gold); margin: 20px 0; }
 
         /* Countdown Timer */
         .countdown-container {
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(212, 175, 55, 0.05);
             border: 1px solid var(--gold);
             padding: 30px;
-            margin: 40px 0;
-            border-radius: 10px;
+            margin: 30px 0;
+            border-radius: 15px;
         }
-        .timer { display: flex; justify-content: center; gap: 20px; font-size: 1.5rem; }
-        .timer-part span { display: block; font-size: 0.8rem; text-transform: uppercase; color: var(--gold); }
+        .timer { display: flex; justify-content: center; gap: 15px; font-size: 1.8rem; font-weight: bold; }
+        .timer-part span { display: block; font-size: 0.7rem; text-transform: uppercase; color: var(--gold); }
 
         /* Timeline / Events */
         .event-card {
             background: var(--card-bg);
             border-left: 4px solid var(--gold);
-            padding: 20px;
+            padding: 25px;
             margin-bottom: 25px;
             text-align: left;
-            transition: 0.3s;
+            transition: 0.4s;
+            border-radius: 0 15px 15px 0;
         }
-        .event-card:hover { transform: translateX(10px); background: #222; }
-        .event-time { color: var(--gold); font-weight: bold; font-size: 0.9rem; }
-        .venue-btn { 
-            display: inline-block; margin-top: 10px; color: var(--gold); 
-            text-decoration: none; font-size: 0.8rem; border: 1px solid var(--gold);
-            padding: 5px 10px; border-radius: 5px;
-        }
+        .event-card:hover { transform: translateX(10px); background: #222; box-shadow: 0 5px 15px rgba(212, 175, 55, 0.1); }
+        .event-time { color: var(--gold); font-weight: bold; font-size: 0.9rem; margin-bottom: 5px; }
 
-        /* Photo Marquee (Corporate Style) */
+        /* CORPORATE STYLE PHOTO MARQUEE (FAST SPEED) */
         .marquee-container {
             overflow: hidden;
             width: 100vw;
@@ -78,78 +70,94 @@
             right: 50%;
             margin-left: -50vw;
             margin-right: -50vw;
-            background: #111;
+            background: #000;
             padding: 40px 0;
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
         }
         .marquee-content {
             display: flex;
-            width: 200%; /* Enough to loop */
-            animation: marquee 10s linear infinite; /* Adjusted speed to be faster */
+            width: calc(250px * 12); /* Based on (img width + margin) * total imgs */
+            animation: corporateScroll 15s linear infinite; /* Adjusted speed: lower seconds = faster */
         }
         .marquee-content img {
-            width: 300px;
-            height: 400px;
+            width: 230px;
+            height: 320px;
             object-fit: cover;
-            margin-right: 20px;
-            border: 2px solid var(--gold);
-            border-radius: 10px;
+            margin: 0 10px;
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+            filter: grayscale(20%);
+            transition: 0.3s;
         }
-        @keyframes marquee {
+        .marquee-content img:hover { filter: grayscale(0%); transform: scale(1.05); }
+
+        @keyframes corporateScroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            100% { transform: translateX(calc(-250px * 6)); } /* Moves by half the total width for seamless loop */
         }
 
-        /* Details Section */
+        /* Details & RSVP */
         .details-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             margin-top: 40px;
         }
-        .detail-item { padding: 20px; border: 1px dashed var(--gold); }
+        .detail-item { padding: 30px; border: 1px dashed var(--gold); border-radius: 10px; }
 
-        /* Map (Dark Mode) */
+        /* Map Dark Mode */
         .map-container {
             margin-top: 30px;
             filter: invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%);
             border: 2px solid var(--gold);
+            border-radius: 15px;
+            overflow: hidden;
+            height: 350px;
         }
 
-        /* Responsive */
         @media (max-width: 600px) {
-            .timer { gap: 10px; font-size: 1.1rem; }
-            .marquee-content img { width: 200px; height: 280px; }
+            .timer { font-size: 1.2rem; gap: 10px; }
+            .marquee-content img { width: 160px; height: 220px; }
+            @keyframes corporateScroll {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(calc(-180px * 6)); }
+            }
         }
     </style>
 </head>
 <body>
 
-    <section class="hero">
-      <div class="Landingimage">
-        <img src="./assets/images/Edited-55.JPG.jpeg" alt="Ganpati Icon" class="ganpati-icon" style="width: 100%;">
-      </div>
+    <section class="hero" style="padding-top: 0;">
+        <div class="Landingimage">
+            <img src="./assets/images/Edited-55.JPG.jpeg" alt="Couple Header">
+        </div>
 
-      <div class="ganpatilogo">
-        <img src="./assets/images/गणपती-removebg-preview.png" alt="Ganpati Icon" class="ganpati-icon">
-      </div>
+        <div class="ganpatilogo">
+            <img src="./assets/images/गणपती-removebg-preview.png" alt="Ganpati Icon">
+        </div>
         
         <div class="mantra">|| Om Shree Satnam Sakhi || || Radheshyam ||</div>
         
         <p>Dear Friends & Family</p>
         <br>
-        <p><i>From long calls to countless memories<br>From virtual dates to real ones</i></p>
+        <p style="font-size: 1.1rem; font-style: italic;">
+            From long calls to countless memories<br>
+            From virtual dates to real ones
+        </p>
         <br>
-        <h2 class="cursive">Harsh & Priyanka</h2>
+        <p>They made it through the distance & now its time to make it official !!</p>
+        <h2 class="cursive" style="margin: 20px 0;">Harsh & Priyanka</h2>
         <p>are finally saying Hello to Forever</p>
         <div class="hashtag">#PriGotHarForever</div>
         <br>
-        <p>Join us to celebrate their journey from miles apart to side by side!</p>
+        <p>Join us to celebrate their journey from miles apart to side by side !!</p>
     </section>
 
     <section>
-        <h3>13 May & 14 May 2026</h3>
+        <h3 style="margin-bottom: 10px;">13 May & 14 May 2026</h3>
         <div class="countdown-container">
-            <p style="margin-bottom: 15px;">Celebration starts in</p>
+            <p style="margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;">Celebration starts in</p>
             <div id="countdown" class="timer">
                 <div class="timer-part"><div id="days">00</div><span>Days</span></div>
                 <div class="timer-part"><div id="hours">00</div><span>Hours</span></div>
@@ -160,40 +168,40 @@
     </section>
 
     <section>
-        <h3>Wedding Events</h3>
+        <h3 style="margin-bottom: 30px; text-decoration: underline;">The Wedding Itinerary</h3>
         
         <div class="event-card">
-            <div class="event-time">13 May '26 | 12:30 PM</div>
+            <div class="event-time">13 May 26 | 12:30 PM</div>
             <h2>Mela Madness</h2>
-            <p>Carnival Fun</p>
-            <p><i class="fas fa-map-marker-alt"></i> Marigold Lawn</p>
+            <p>Carnival Theme Party</p>
+            <p><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> Marigold Lawn</p>
         </div>
 
         <div class="event-card">
-            <div class="event-time">13 May '26 | 07:00 PM</div>
+            <div class="event-time">13 May 26 | 07:00 PM</div>
             <h2>Glitz & Glam</h2>
-            <p>Sangeet and Engagement followed by Dinner</p>
-            <p><i class="fas fa-map-marker-alt"></i> Arista Banquet</p>
+            <p>Sangeet and Engagement Ceremony</p>
+            <p><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> Arista Banquet | Followed by Dinner</p>
         </div>
 
         <div class="event-card">
-            <div class="event-time">14 May '26 | 11:00 AM</div>
+            <div class="event-time">14 May 26 | 11:00 AM</div>
             <h2>Sacred Start</h2>
-            <p>Ganesh Sthapna followed by Lunch</p>
-            <p><i class="fas fa-map-marker-alt"></i> Venue TBD</p>
+            <p>Ganesh Sthapna Ceremony</p>
+            <p><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> Venue TBD | Followed by Lunch</p>
         </div>
 
         <div class="event-card">
-            <div class="event-time">14 May '26 | 05:00 PM</div>
+            <div class="event-time">14 May 26 | 05:00 PM</div>
             <h2>The Baraat Bash</h2>
-            <p>Join the Procession</p>
+            <p>Join the Dance of Joy</p>
         </div>
 
         <div class="event-card">
-            <div class="event-time">14 May '26 | 07:00 PM</div>
+            <div class="event-time">14 May 26 | 07:00 PM</div>
             <h2>Happily Ever After</h2>
-            <p>Wedding Pheras followed by Dinner</p>
-            <p><i class="fas fa-map-marker-alt"></i> Arista Banquet</p>
+            <p>Wedding Pheras</p>
+            <p><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> Arista Banquet | Followed by Dinner</p>
         </div>
     </section>
 
@@ -203,8 +211,14 @@
             <img src="./assets/images/Edited-23.JPG.jpeg" alt="Couple 2">
             <img src="./assets/images/Edited-55.JPG.jpeg" alt="Couple 3">
             <img src="./assets/images/IMG-20251231-WA0125.jpg.jpeg" alt="Couple 4">
-            <img src="./assets/images/IMG-20260223-WA0010(1).jpg.jpeg" alt="Couple 1">
-            <img src="./assets/images/IMG_1203 (1).JPG.jpeg" alt="Couple 2">
+            <img src="./assets/images/IMG-20260223-WA0010(1).jpg.jpeg" alt="Couple 5">
+            <img src="./assets/images/IMG_1203 (1).JPG.jpeg" alt="Couple 6">
+            <img src="./assets/images/Edited-127.JPG.jpeg" alt="Couple 1">
+            <img src="./assets/images/Edited-23.JPG.jpeg" alt="Couple 2">
+            <img src="./assets/images/Edited-55.JPG.jpeg" alt="Couple 3">
+            <img src="./assets/images/IMG-20251231-WA0125.jpg.jpeg" alt="Couple 4">
+            <img src="./assets/images/IMG-20260223-WA0010(1).jpg.jpeg" alt="Couple 5">
+            <img src="./assets/images/IMG_1203 (1).JPG.jpeg" alt="Couple 6">
         </div>
     </div>
 
@@ -212,8 +226,7 @@
         <div class="details-grid">
             <div class="detail-item">
                 <h3>Dress Code</h3>
-                <p>Ethnic & Colorful</p>
-                
+                <p>Ethnic & Colorful Traditional Wear</p>
             </div>
             <div class="detail-item">
                 <h3>Family Regards</h3>
@@ -227,8 +240,8 @@
                 <p>Rajesh: +91 98765 43210</p>
                 <p>Suman: +91 91234 56789</p>
             </div>
-            <div class="detail-item">
-                <h3 class="cursive" style="font-size: 2rem;">See You Soon!</h3>
+            <div class="detail-item" style="border: none; display: flex; align-items: center; justify-content: center;">
+                <h3 class="cursive" style="font-size: 3.5rem;">See You Soon!</h3>
             </div>
         </div>
     </section>
@@ -238,8 +251,8 @@
         <p>Avadh Utopia, Vapi</p>
         <div class="map-container">
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3744.7578278065056!2d72.930419!3d20.310243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0c279c0000001%3A0xe6754b2d5d85a065!2sAvadh%20Utopia%20Vapi!5e0!3m2!1sen!2sin!4v1710000000000" 
-                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3739.467825313465!2d72.93581757523956!3d20.353342581131175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0c8a6d7132801%3A0x89e802062ec8746!2sAvadh%20Utopia%20Vapi!5e0!3m2!1sen!2sin!4v1714150000000!5m2!1sen!2sin" 
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
             </iframe>
         </div>
     </section>
