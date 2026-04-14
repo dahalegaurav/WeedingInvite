@@ -316,78 +316,122 @@
             width: 100%;
             /* Ensures text alignment works */
         }
-        /* Dress Code Section Styling */
+        /* Optimized Dress Code Styling */
 .dresscode-container {
     display: flex;
     flex-direction: column;
-    gap: 40px;
-    padding: 20px 0;
+    gap: 50px; /* Space between each event row */
+    padding: 40px 10px;
+    max-width: 600px; /* Keeps the layout tight like a phone screen */
+    margin: 0 auto;
 }
 
 .dresscode-row {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
+    align-items: center; /* Vertically centers text with image */
+    gap: 25px;
+    width: 100%;
 }
 
-/* For the alternating look (image right, text left) */
-.dresscode-row.reverse {
-    flex-direction: row-reverse;
-    height: 200px;
-}
-
-/* The Polaroid Frame */
+/* The Polaroid Frame - Enhanced */
 .polaroid {
     background: white;
-    padding: 10px 10px 30px 10px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    transform: rotate(-3deg); /* Slight tilt like the image */
-    width: 45%;
+    padding: 8px 8px 25px 8px; /* Bottom padding is larger for the "label" look */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    width: 50%;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
 }
 
 .polaroid img {
     width: 100%;
-    height: auto;
-    display: block;
-    border: 1px solid #eee;
+    aspect-ratio: 1 / 1; /* Makes images square like a real Polaroid */
+    object-fit: cover;
+    border: 1px solid #ddd;
 }
 
-.polaroid.tilt-right {
-    transform: rotate(3deg);
+/* Tilts for that scattered photo look */
+.tilt-left { transform: rotate(-3deg); }
+.tilt-right { transform: rotate(3deg); }
+
+.dresscode-row.reverse {
+    flex-direction: row-reverse;
 }
 
-/* The Text Side */
 .dresscode-text {
     width: 50%;
     text-align: left;
 }
 
+.dresscode-row.reverse .dresscode-text {
+    text-align: right;
+}
+
 .dresscode-text h4 {
     font-family: 'Cinzel', serif;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: var(--gold);
-    margin-bottom: 5px;
-    text-transform: uppercase;
+    margin-bottom: 8px;
 }
 
 .dresscode-text p {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     line-height: 1.4;
-    color: #ccc;
+    color: #eee;
 }
 
 .avoid-note {
-    font-size: 0.75rem !important;
+    font-size: 0.7rem !important;
     color: var(--gold) !important;
-    margin-top: 8px;
+    margin-top: 10px;
     font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 600px) {
-    .polaroid { width: 55%; }
-    .dresscode-text { width: 45%; }
+@media (max-width: 480px) {
+    .dresscode-text h4 { font-size: 1rem; }
+    .dresscode-text p { font-size: 0.75rem; }
+}
+/* Couple Gallery Styling */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns on mobile */
+    gap: 15px;
+    padding: 20px 0;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.9);
+}
+
+/* Makes some images stand out (Tall images) */
+.gallery-item.tall {
+    grid-row: span 2;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+    border-color: var(--gold);
+}
+
+@media (min-width: 600px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr); /* Three columns on desktop */
+        gap: 20px;
+    }
 }
     </style>
 </head>
@@ -462,6 +506,37 @@
     </section>
 
 
+<section id="our-moments">
+    <h3 class="cursive" style="font-size: 3rem; margin-bottom: 10px;">Our Moments</h3>
+    <p style="font-size: 0.8rem; letter-spacing: 3px; margin-bottom: 30px; text-transform: uppercase;">A journey of love</p>
+
+    <div class="gallery-grid">
+        <div class="gallery-item tall">
+            <img src="./assets/images/Edited-55.JPG.jpeg" alt="Couple Moment 1">
+        </div>
+
+        <div class="gallery-item">
+            <img src="./assets/images/Edited-23.JPG.jpeg" alt="Couple Moment 2">
+        </div>
+
+        <div class="gallery-item">
+            <img src="./assets/images/IMG-20251231-WA0125.jpg.jpeg" alt="Couple Moment 3">
+        </div>
+
+        <div class="gallery-item">
+            <img src="./assets/images/IMG_1203 (1).JPG.jpeg" alt="Couple Moment 4">
+        </div>
+
+        <div class="gallery-item tall">
+            <img src="./assets/images/IMG-20260223-WA0010(1).jpg.jpeg" alt="Couple Moment 5">
+        </div>
+
+        <div class="gallery-item">
+            <img src="./assets/images/Edited-127.JPG.jpeg" alt="Couple Moment 6">
+        </div>
+    </div>
+</section>
+
     <section>
         <h3 style="margin-bottom: 30px; text-decoration: underline;">The Wedding Itinerary</h3>
 
@@ -502,32 +577,15 @@
 
     </section>
 
-<!-- 
-    <div class="marquee-container">
-        <div class="marquee-content">
-            <img src="./assets/images/Edited-127.JPG.jpeg" alt="1"><img src="./assets/images/Edited-23.JPG.jpeg"
-                alt="2">
-            <img src="./assets/images/Edited-55.JPG.jpeg" alt="3"><img
-                src="./assets/images/IMG-20251231-WA0125.jpg.jpeg" alt="4">
-            <img src="./assets/images/IMG-20260223-WA0010(1).jpg.jpeg" alt="5"><img
-                src="./assets/images/IMG_1203 (1).JPG.jpeg" alt="6">
-            <img src="./assets/images/Edited-127.JPG.jpeg" alt="1"><img src="./assets/images/Edited-23.JPG.jpeg"
-                alt="2">
-            <img src="./assets/images/Edited-55.JPG.jpeg" alt="3"><img
-                src="./assets/images/IMG-20251231-WA0125.jpg.jpeg" alt="4">
-            <img src="./assets/images/IMG-20260223-WA0010(1).jpg.jpeg" alt="5"><img
-                src="./assets/images/IMG_1203 (1).JPG.jpeg" alt="6">
-        </div>
-    </div> -->
-
-    <section>
-    <h3 style="margin-bottom: 40px;">Dress Code</h3>
+<section>
+    <h3 style="margin-bottom: 20px;">Dress Code</h3>
+    <p style="font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 40px;">STYLE GUIDE FOR OUR GUESTS</p>
     
     <div class="dresscode-container">
         
         <div class="dresscode-row">
-            <div class="polaroid">
-                <img src="./assets/images/Events/After party.jpg.jpeg" alt="Mela Attire">
+            <div class="polaroid tilt-left">
+                <img src="./assets/images/Events/After party.jpg.jpeg" alt="After Party">
             </div>
             <div class="dresscode-text">
                 <h4>After Party</h4>
@@ -538,50 +596,51 @@
 
         <div class="dresscode-row reverse">
             <div class="polaroid tilt-right">
-                <img src="./assets/images/Events/Baraat n Pheras.png" alt="Wedding Attire">
+                <img src="./assets/images/Events/Baraat n Pheras.png" alt="Baarat">
             </div>
-            <div class="dresscode-text" style="text-align: right;">
-                <h4>Baarat</h4>
+            <div class="dresscode-text">
+                <h4>The Baarat</h4>
                 <p>Traditional or Formal Indian Ethnic wear.</p>
                 <p class="avoid-note">AVOID: White or Ivory</p>
             </div>
         </div>
-         
+
         <div class="dresscode-row">
-            <div class="polaroid">
-                <img src="./assets/images/Events/Carnival (2).png" alt="Mela Attire">
+            <div class="polaroid tilt-left">
+                <img src="./assets/images/Events/Carnival (2).png" alt="Carnival">
             </div>
             <div class="dresscode-text">
                 <h4>Carnival</h4>
-                <p>Festive, colorful, and relaxed carnival vibes.</p>
-                <p class="avoid-note">AVOID: Burnt Orange or Brown</p>
+                <p>Boho-Chic or Bright Summer Florals.</p>
+                <p class="avoid-note">AVOID: Dark/Dull Colors</p>
             </div>
         </div>
 
         <div class="dresscode-row reverse">
             <div class="polaroid tilt-right">
-                <img src="./assets/images/Events/Ganesh Sthapna.jpg (1).jpeg" alt="Wedding Attire">
+                <img src="./assets/images/Events/Ganesh Sthapna.jpg (1).jpeg" alt="Pheras">
             </div>
-            <div class="dresscode-text" style="text-align: right;">
-                <h4>Wedding Pheras</h4>
-                <p>Traditional or Formal Indian Ethnic wear.</p>
-                <p class="avoid-note">AVOID: White or Ivory</p>
+            <div class="dresscode-text">
+                <h4>The Pheras</h4>
+                <p>Regal Traditional Attire.</p>
+                <p class="avoid-note">AVOID: Black or Grey</p>
             </div>
         </div>
-          <div class="dresscode-row">
-            <div class="polaroid">
-                <img src="./assets/images/Events/Sangeet n Engagement .png" alt="Mela Attire">
+
+        <div class="dresscode-row">
+            <div class="polaroid tilt-left">
+                <img src="./assets/images/Events/Sangeet n Engagement .png" alt="Sangeet">
             </div>
             <div class="dresscode-text">
                 <h4>Sangeet</h4>
-                <p>Festive, colorful, and relaxed carnival vibes.</p>
-                <p class="avoid-note">AVOID: Burnt Orange or Brown</p>
+                <p>Evening Glitz & Glamour.</p>
+                <p class="avoid-note">AVOID: Plain/Casual Wear</p>
             </div>
         </div>
 
     </div>
 </section>
-    <!-- <section>
+    <section>
         <div class="details-grid">
            
             <div class="detail-item">
@@ -591,7 +650,7 @@
             </div>
         </div>
         <h3 class="cursive" style="margin-top: 40px; font-size: 3rem;">See You Soon!</h3>
-    </section> -->
+    </section>
 
     <section>
         <h3>Location</h3>
@@ -601,19 +660,7 @@
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3744.135763073722!2d72.936657!3d20.315357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0c2794c48914b%3A0xc622271815147395!2sAvadh%20Utopia%20Vapi!5e0!3m2!1sen!2sin!4v1700000000000"
                 width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
-    </section>
-
-    <h3 class="cursive" style="margin-top: 40px; font-size: 3rem; margin: 20px;">See You Soon!</h3>
-    <section>
-        <div class="details-grid">
-            <div class="detail-item">
-                <h3>RSVP</h3>
-                <p>Rajesh: +91 98765 43210</p>
-                <p>Suman: +91 91234 56789</p>
-            </div>
-        </div>
-        <!-- <h3 class="cursive" style="margin-top: 40px; font-size: 3rem;">See You Soon!</h3> -->
-    </section>
+    </section>n>
     <script>
         const targetDate = new Date("May 13, 2026 12:30:00").getTime();
         function updateCountdown() {
