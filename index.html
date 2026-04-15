@@ -2,9 +2,25 @@
 <html lang="en">
 
 <head>
+
+
+  <title>Harsh & Priyanka</title>
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://harshwedspriyanka.netlify.app/">
+  <meta property="og:title" content="Project Title">
+  <meta property="og:description" content="A brief description of your site.">
+  <meta property="og:image" content="./assets/images/Edited-55.JPG.jpeg">
+
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://harshwedspriyanka.netlify.app/">
+  <meta property="twitter:title" content="Project Title">
+  <meta property="twitter:description" content="A brief description of your site.">
+  <meta property="twitter:image" content="./assets/images/Edited-55.JPG.jpeg">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harsh & Priyanka | #PriGotHarForever</title>
+    
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap"
         rel="stylesheet">
@@ -44,6 +60,7 @@
         .cursive {
             font-family: 'Great Vibes', cursive;
             font-size: 3.5rem;
+            
             color: var(--gold);
         }
 
@@ -203,7 +220,7 @@
         .marquee-content {
             display: flex;
             width: calc(250px * 12);
-            animation: corporateScroll 15s linear infinite;
+            animation: corporateScroll 30s linear infinite;
         }
 
         .marquee-content img {
@@ -295,7 +312,6 @@
             height: auto;
             transform: translate(-50%, -50%);
             object-fit: cover;
-            filter: blur(1px) brightness(0.7);
             /* Added brightness control here */
             z-index: 1;
         }
@@ -335,7 +351,15 @@
 
 /* The Polaroid Frame - Enhanced */
 .polaroid {
-    background: white;
+
+background: linear-gradient(to bottom, 
+  #cfc09f 22%, 
+  #634f2c 24%, 
+  #cfc09f 26%, 
+  #cfc09f 27%, 
+  #ffecb3 40%, 
+  #3a2c0f 78%
+);
     padding: 8px 8px 25px 8px; /* Bottom padding is larger for the "label" look */
     box-shadow: 0 15px 30px rgba(0,0,0,0.5);
     width: 50%;
@@ -347,7 +371,7 @@
     width: 100%;
     aspect-ratio: 1 / 1; /* Makes images square like a real Polaroid */
     object-fit: cover;
-    border: 1px solid #ddd;
+    /* border: 2px solid black; */
 }
 
 /* Tilts for that scattered photo look */
@@ -393,46 +417,6 @@
     .dresscode-text h4 { font-size: 1rem; }
     .dresscode-text p { font-size: 0.75rem; }
 }
-/* Couple Gallery Styling */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns on mobile */
-    gap: 15px;
-    padding: 20px 0;
-}
-
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    transition: transform 0.3s ease;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    filter: brightness(0.9);
-}
-
-/* Makes some images stand out (Tall images) */
-.gallery-item.tall {
-    grid-row: span 2;
-}
-
-.gallery-item:hover {
-    transform: scale(1.02);
-    border-color: var(--gold);
-}
-
-@media (min-width: 600px) {
-    .gallery-grid {
-        grid-template-columns: repeat(3, 1fr); /* Three columns on desktop */
-        gap: 20px;
-    }
-}
     </style>
 </head>
 
@@ -440,7 +424,7 @@
 
     <section class="hero">
         <div class="hero-top">
-            <h2 class="cursive">Harsh & Priyanka</h2>
+            <h2 class="cursive" style="font-weight: 100;">Harsh & Priyanka</h2>
         </div>
 
         <div class="hero-middle">
@@ -505,7 +489,7 @@
         </div>
     </section>
 
-
+<!-- 
 <section id="our-moments">
     <h3 class="cursive" style="font-size: 3rem; margin-bottom: 10px;">Our Moments</h3>
     <p style="font-size: 0.8rem; letter-spacing: 3px; margin-bottom: 30px; text-transform: uppercase;">A journey of love</p>
@@ -535,9 +519,27 @@
             <img src="./assets/images/Edited-127.JPG.jpeg" alt="Couple Moment 6">
         </div>
     </div>
-</section>
+</section> -->
 
+
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <img src="./assets/images/Edited-127.JPG.jpeg" alt="1"><img src="./assets/images/Edited-23.JPG.jpeg"
+                alt="2">
+            <img src="./assets/images/Edited-55.JPG.jpeg" alt="3"><img
+                src="./assets/images/IMG-20251231-WA0125.jpg.jpeg" alt="4">
+            <img src="./assets/images/IMG-20260223-WA0010(1).jpg.jpeg" alt="5"><img
+                src="./assets/images/IMG_1203 (1).JPG.jpeg" alt="6">
+            <img src="./assets/images/Edited-127.JPG.jpeg" alt="1"><img src="./assets/images/Edited-23.JPG.jpeg"
+                alt="2">
+            <img src="./assets/images/Edited-55.JPG.jpeg" alt="3"><img
+                src="./assets/images/IMG-20251231-WA0125.jpg.jpeg" alt="4">
+            <img src="./assets/images/IMG-20260223-WA0010(1).jpg.jpeg" alt="5"><img
+                src="./assets/images/IMG_1203 (1).JPG.jpeg" alt="6">
+        </div>
+    </div>
     <section>
+        
         <h3 style="margin-bottom: 30px; text-decoration: underline;">The Wedding Itinerary</h3>
 
         <div class="event-card video-card">
@@ -585,28 +587,6 @@
         
         <div class="dresscode-row">
             <div class="polaroid tilt-left">
-                <img src="./assets/images/Events/After party.jpg.jpeg" alt="After Party">
-            </div>
-            <div class="dresscode-text">
-                <h4>After Party</h4>
-                <p>Festive, colorful, and relaxed carnival vibes.</p>
-                <p class="avoid-note">AVOID: Burnt Orange or Brown</p>
-            </div>
-        </div>
-
-        <div class="dresscode-row reverse">
-            <div class="polaroid tilt-right">
-                <img src="./assets/images/Events/Baraat n Pheras.png" alt="Baarat">
-            </div>
-            <div class="dresscode-text">
-                <h4>The Baarat</h4>
-                <p>Traditional or Formal Indian Ethnic wear.</p>
-                <p class="avoid-note">AVOID: White or Ivory</p>
-            </div>
-        </div>
-
-        <div class="dresscode-row">
-            <div class="polaroid tilt-left">
                 <img src="./assets/images/Events/Carnival (2).png" alt="Carnival">
             </div>
             <div class="dresscode-text">
@@ -616,6 +596,28 @@
             </div>
         </div>
 
+        <div class="dresscode-row reverse">
+            <div class="polaroid tilt-left">
+                <img src="./assets/images/Events/Sangeet n Engagement .png" alt="Sangeet">
+            </div>
+            <div class="dresscode-text">
+                <h4>Sangeet</h4>
+                <p>Evening Glitz & Glamour.</p>
+                <p class="avoid-note">AVOID: Plain/Casual Wear</p>
+            </div>
+        </div>
+
+         <div class="dresscode-row ">
+            <div class="polaroid tilt-right">
+                <img src="./assets/images/Events/Baraat n Pheras.png" alt="Baarat">
+            </div>
+            <div class="dresscode-text">
+                <h4>The Baarat</h4>
+                <p>Traditional or Formal Indian Ethnic wear.</p>
+                <p class="avoid-note">AVOID: White or Ivory</p>
+            </div>
+        </div>
+        
         <div class="dresscode-row reverse">
             <div class="polaroid tilt-right">
                 <img src="./assets/images/Events/Ganesh Sthapna.jpg (1).jpeg" alt="Pheras">
@@ -627,19 +629,29 @@
             </div>
         </div>
 
+
+
         <div class="dresscode-row">
             <div class="polaroid tilt-left">
-                <img src="./assets/images/Events/Sangeet n Engagement .png" alt="Sangeet">
+                <img src="./assets/images/Events/After party.jpg.jpeg" alt="After Party">
             </div>
             <div class="dresscode-text">
-                <h4>Sangeet</h4>
-                <p>Evening Glitz & Glamour.</p>
-                <p class="avoid-note">AVOID: Plain/Casual Wear</p>
+                <h4>After Party</h4>
+                <p>Festive, colorful, and relaxed carnival vibes.</p>
+                <p class="avoid-note">AVOID: Burnt Orange or Brown</p>
             </div>
         </div>
-
     </div>
 </section>
+<section>
+        <h3>Location</h3>
+        <p>Avadh Utopia, Vapi</p>
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3744.135763073722!2d72.936657!3d20.315357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0c2794c48914b%3A0xc622271815147395!2sAvadh%20Utopia%20Vapi!5e0!3m2!1sen!2sin!4v1700000000000"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
     <section>
         <div class="details-grid">
            
@@ -652,15 +664,7 @@
         <h3 class="cursive" style="margin-top: 40px; font-size: 3rem;">See You Soon!</h3>
     </section>
 
-    <section>
-        <h3>Location</h3>
-        <p>Avadh Utopia, Vapi</p>
-        <div class="map-container">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3744.135763073722!2d72.936657!3d20.315357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0c2794c48914b%3A0xc622271815147395!2sAvadh%20Utopia%20Vapi!5e0!3m2!1sen!2sin!4v1700000000000"
-                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-    </section>n>
+    
     <script>
         const targetDate = new Date("May 13, 2026 12:30:00").getTime();
         function updateCountdown() {
