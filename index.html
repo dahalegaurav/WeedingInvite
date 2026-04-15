@@ -23,6 +23,7 @@
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
     <style>
         :root {
@@ -450,7 +451,8 @@
 
     <section class="hero">
         <div class="hero-top">
-            <h2 class="cursive" style="font-weight: 100;">Harsh & Priyanka</h2>
+            <!-- <h2 class="cursive" style="font-weight: 100;">Harsh & Priyanka</h2> -->
+            <h2 class="cursive" data-aos="fade-up">Harsh & Priyanka</h2>
         </div>
 
         <div class="hero-middle">
@@ -533,9 +535,10 @@
     </div>
     <section>
 
-        <h3 style="margin-bottom: 30px; text-decoration: underline;">The Wedding Itinerary</h3>
+        <!-- <h3 style="margin-bottom: 30px; text-decoration: underline;">The Wedding Itinerary</h3> -->
+         <h3 data-aos="fade-up">The Wedding Itinerary</h3>
 
-        <div class="event-card video-card">
+        <div class="event-card video-card" data-aos="fade-up"s>
             <video autoplay muted loop playsinline class="card-video">
                 <source src="./assets/images/Events/Trendyfi(1).mp4" type="video/mp4">
             </video>
@@ -546,7 +549,7 @@
                 <p>Carnival Theme Party <br> <i class="fas fa-map-marker-alt"></i> Marigold Lawn</p>
             </div>
         </div>
-        <div class="event-card video-card">
+        <div class="event-card video-card" data-aos="fade-right">
             <video autoplay muted loop playsinline class="card-video">
                 <source src="./assets/images/Events/emanakhtar12_001.mp4" type="video/mp4">
             </video>
@@ -557,7 +560,7 @@
                 <p>Sangeet & Engagement | <i class="fas fa-map-marker-alt"></i> Arista Banquet</p>
             </div>
         </div>
-        <div class="event-card video-card">
+        <div class="event-card video-card" data-aos="fade-right">
             <video autoplay muted loop playsinline class="card-video">
                 <source src="./assets/images/Events/Trendyfi(1).mp4" type="video/mp4">
             </video>
@@ -578,7 +581,7 @@
 
         <div class="dresscode-container">
 
-            <div class="dresscode-row">
+            <div class="dresscode-row" data-aos="fade-right">
                 <div class="polaroid tilt-left">
                     <img src="./assets/images/Events/Carnival (2).png" alt="Carnival">
                 </div>
@@ -590,7 +593,7 @@
                 </div>
             </div>
 
-            <div class="dresscode-row reverse">
+            <div class="dresscode-row reverse" data-aos="fade-left">
                 <div class="polaroid tilt-left">
                     <img src="./assets/images/Events/Sangeet n Engagement .png" alt="Sangeet">
                 </div>
@@ -601,7 +604,7 @@
                 </div>
             </div>
 
-            <div class="dresscode-row ">
+            <div class="dresscode-row " data-aos="fade-right">
                 <div class="polaroid tilt-right">
                     <img src="./assets/images/Events/Baraat n Pheras.png" alt="Baarat">
                 </div>
@@ -614,7 +617,7 @@
 
 
 
-            <div class="dresscode-row reverse">
+            <div class="dresscode-row reverse" data-aos="fade-left">
                 <div class="polaroid tilt-left">
                     <img src="./assets/images/Events/After party.jpg.jpeg" alt="After Party">
                 </div>
@@ -654,6 +657,14 @@
         </div>
     </section>
 
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
     <script>
         const targetDate = new Date("May 13, 2026 12:30:00").getTime();
         function updateCountdown() {
