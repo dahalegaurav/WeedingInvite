@@ -359,7 +359,7 @@
 
         .dresscode-row {
             display: flex;
-            align-items: center;
+            /* align-items: center; */
             /* Vertically centers text with image */
             gap: 25px;
             width: 100%;
@@ -444,6 +444,16 @@
                 font-size: 0.75rem;
             }
         }
+        .arrow img{
+            height: 50px;
+            transform: scaleX(-1) rotate(110deg);
+            margin-top: 20px;
+        }
+        .arrow2 img{
+             height: 50px;
+            transform: scaleX(-1) rotate(-110deg);
+            margin-top: 20px;
+        }
     </style>
 </head>
 
@@ -452,7 +462,7 @@
     <section class="hero">
         <div class="hero-top">
             <!-- <h2 class="cursive" style="font-weight: 100;">Harsh & Priyanka</h2> -->
-            <h2 class="cursive" data-aos="fade-up">Harsh & Priyanka</h2>
+            <h2 class="cursive" data-aos="fade-up" style="font-weight: 100;">Harsh & Priyanka</h2>
         </div>
 
         <div class="hero-middle">
@@ -581,15 +591,17 @@
 
         <div class="dresscode-container">
 
-            <div class="dresscode-row" data-aos="fade-right">
-                <div class="polaroid tilt-left">
+             <div class="dresscode-row " data-aos="fade-right">
+                <div class="polaroid tilt-right">
                     <img src="./assets/images/Events/Carnival (2).png" alt="Carnival">
                 </div>
                 <div class="dresscode-text">
                     <h4>Carnival</h4>
-
                     <p>Display of styles </p>
                     <p class="avoid-note">Pastel Hues</p>
+                    <div class="arrow">
+                        <img src="./assets/images/Arrow.png" alt="">
+                    </div>
                 </div>
             </div>
 
@@ -601,6 +613,11 @@
                     <h4>Sangeet</h4>
                     <p>Dress to dazzle & Dance till dawn</p>
                     <p class="avoid-note">Shine & Glow</p>
+                    
+                    <div class="arrow2">
+                        <img src="./assets/images/Arrow2.png" alt="">
+                    </div>
+                   
                 </div>
             </div>
 
@@ -609,9 +626,12 @@
                     <img src="./assets/images/Events/Baraat n Pheras.png" alt="Baarat">
                 </div>
                 <div class="dresscode-text">
-                    <h4>The Baraat & Pheras</h4>
+                    <h4>Baraat & Pheras</h4>
                     <p>Wrapped in lilies, Lit by love</p>
                     <p class="avoid-note">Indian Elegance</p>
+                     <div class="arrow">
+                        <img src="./assets/images/Arrow.png" alt="">
+                    </div>
                 </div>
             </div>
 
@@ -625,6 +645,9 @@
                     <h4>After Party</h4>
                     <p>After the vows, the real vibe begins </p>
                     <p class="avoid-note">Comfy Pyjama set</p>
+                       <div class="arrow2">
+                        <img src="./assets/images/Arrow2.png" alt="">
+                    </div>
                 </div>
             </div>
         </div>
