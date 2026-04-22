@@ -184,7 +184,7 @@
 
         #invite-content {
             background: rgba(212, 175, 55, 0.05);
-            margin: 30px;
+            margin: 10px;
             padding: 20px;
             border-radius: 10px;
         }
@@ -485,11 +485,9 @@
         /* The Heart Shape Sparkle */
         .heart-sparkle {
             position: absolute;
-            bottom: -20px;
+            bottom: -10px;
             color: var(--gold);
-            font-size: 1.2rem;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
-            opacity: 0;
+             opacity: 0;
             animation: floatUp var(--duration) linear infinite;
         }
 
@@ -501,7 +499,7 @@
 
             20% {
                 opacity: 0.8;
-                transform: translateY(-20%) scale(1) rotate(15deg);
+                transform: translateY(-20%) scale(0.5) rotate(15deg);
             }
 
             80% {
@@ -613,7 +611,7 @@ body {
 .full-screen-section {
   min-height: 100vh;
   scroll-snap-align: start;
-
+overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
