@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Harsh & Priyanka</title>
+
+    <meta property="og:url" content="https://harshwedspriyanka.netlify.app/">
+    <meta property="og:title" content="Harsh & Priyanka">
+    <meta property="og:description" content="Join us to celebrate our wedding!">
+    <meta property="og:image" content="https://harshwedspriyanka.netlify.app/assets/images/compressed.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Harsh & Priyanka">
+    <meta name="twitter:description" content="Join us to celebrate our wedding!">
+    <meta name="twitter:image" content="https://harshwedspriyanka.netlify.app/assets/images/compressed.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --gold: #d4af37;
+            --dark-gold: #aa8a2e;
+            --bg-dark: #0a0a0a;
+            --text-light: #f4f4f4;
+            --card-bg: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+        }
+
+        .cursive {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            color: var(--gold);
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .Landingimage img {
+            width: 100%;
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid var(--gold);
+        }
+
+        .ganpatilogo img {
+            width: 80px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 10px var(--gold));
+        }
+
+        .mantra {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-top: 15px;
+        }
+
+        .scroll-down i {
+            font-size: 1.5rem;
+            color: var(--gold);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* --- HEART SPARKLE SECTION --- */
+        .sparkle-container {
+            position: relative;
+            overflow: hidden;
+            padding: 80px 20px;
+            background: rgba(212, 175, 55, 0.03);
+            border-radius: 15px;
+            margin: 30px;
+        }
+
+        .heart-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .invite-text {
+            position: relative;
+            z-index: 5;
+        }
+
+        .heart-sparkle {
+            position: absolute;
+            bottom: -20px;
+            color: var(--gold);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+            opacity: 0;
+            animation: floatUp var(--duration) linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(0) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.8; transform: translateY(-20%) scale(1) rotate(15deg); }
+            100% { transform: translateY(-120vh) scale(0.5) rotate(45deg); opacity: 0; }
+        }
+
+        /* --- COUNTDOWN SECTION (IMAGE-READY) --- */
+        .countdown-section {
+            padding: 80px 20px;
+        }
+
+        .countdown-container {
+            position: relative;
+            border: 1px solid var(--gold);
+            border-radius: 15px;
+            padding: 60px 20px;
+            margin: 40px auto;
+            max-width: 90%;
+            background: transparent;
+            overflow: visible; /* Important for flowers to overlap */
+        }
+
+        .corner-flower {
+            position: absolute;
+            width: 140px;
+            z-index: 10;
+            pointer-events: none;
+            filter: drop-shadow(0 0 8px rgba(0,0,0,0.6));
+        }
+
+        .top-left { top: -95px; left: -45px; }
+        .bottom-right { bottom: -80px; right: -55px; }
+
+        .wedding-date {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .timer-label {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: #a0a0a0;
+            margin-bottom: 35px;
+        }
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .timer-part div {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #fff;
+        }
+
+        .timer-part span {
+            display: block;
+            font-size: 0.6rem;
+            color: var(--gold);
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
+
+        .separator {
+            font-size: 1.8rem;
+            color: #fff;
+            margin-top: 5px;
+        }
+
+        /* --- ITINERARY VIDEO CARDS --- */
+        .video-card {
+            position: relative;
+            overflow: hidden;
+            background: black;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            padding: 40px !important;
+            margin-bottom: 25px;
+            border-radius: 15px;
+        }
+
+        .card-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2;
+        }
+
+        .event-content {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            text-align: left;
+        }
+
+        /* --- MARQUEE --- */
+        .marquee-container {
+            overflow: hidden;
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #000;
+            padding: 40px 0;
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+        }
+
+        .marquee-content {
+            display: flex;
+            animation: corporateScroll 30s linear infinite;
+        }
+
+        .marquee-content img {
+            width: 230px;
+            height: 320px;
+            object-fit: cover;
+            margin: 0 10px;
+            border: 1px solid var(--gold);
+            border-radius: 8px;
+        }
+
+        @keyframes corporateScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-1500px); }
+        }
+
+        /* --- DRESS CODE --- */
+        .dresscode-container {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            padding: 40px 10px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .dresscode-row { display: flex; gap: 25px; width: 100%; }
+        .dresscode-row.reverse { flex-direction: row-reverse; }
+
+        .polaroid {
+            background: linear-gradient(to bottom, #cfc09f, #634f2c, #ffecb3, #3a2c0f);
+            padding: 8px 8px 25px 8px;
+            width: 50%;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .polaroid img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
+        .tilt-right { transform: rotate(3deg); }
+        .tilt-left { transform: rotate(-3deg); }
+
+        .dresscode-text { width: 50%; text-align: left; }
+        .dresscode-row.reverse .dresscode-text { text-align: right; }
+
+        .arrow img, .arrow2 img { height: 50px; margin-top: 20px; }
+        .arrow img { transform: scaleX(-1) rotate(110deg); }
+        .arrow2 img { transform: scaleX(-1) rotate(-110deg); }
+
+        .map-container { height: 350px; border: 2px solid var(--gold); border-radius: 15px; overflow: hidden; margin-top: 30px; filter: invert(90%) hue-rotate(180deg); }
+        .map-container5 { height: 450px; border-radius: 15px; overflow: hidden; }
+        .map-container5 img { width: 100%; height: 100%; object-fit: cover; }
+
+        @media (max-width: 600px) {
+            .timer-part div { font-size: 2rem; }
+            .cursive { font-size: 2.5rem; }
+            .corner-flower { width: 100px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="hero">
+        <div class="hero-top">
+            <h2 class="cursive" data-aos="fade-up">Harsh & Priyanka</h2>
+        </div>
+        <div class="hero-middle">
+            <div class="Landingimage">
+                <img src="./assets/images/Edited-55.JPG.jpeg" alt="Couple Header">
+            </div>
+        </div>
+        <div class="scroll-down" onclick="window.scrollBy({top: window.innerHeight, behavior: 'smooth'})">
+            <p style="font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 5px;">Scroll to Begin</p>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <div class="ganpatilogo">
+        <img src="./assets/images/गणपती-removebg-preview.png" alt="Ganpati Icon">
+    </div>
+    <div class="mantra">|| Om Shree Satnam Sakhi || <br>|| Radheshyam ||</div>
+
+    <section id="invite-content" class="sparkle-container">
+        <div id="heart-fountain" class="heart-container"></div>
+        <div class="invite-text">
+            <p>Dear Friends & Family</p><br>
+            <p style="font-size: 1.1rem; font-style: italic;">
+                From long calls to countless memories<br>
+                From virtual dates to real ones
+            </p><br>
+            <p>They made it through the distance & now its time to make it official !!</p><br>
+            <p>Join us to celebrate their journey from miles apart to side by side !!</p>
+        </div>
+    </section>
+
+    <section class="countdown-section">
+        <div class="countdown-container">
+            <img src="./assets/images/Untitled_design__5_-removebg-preview.png" class="corner-flower top-left" alt="">
+            <img src="./assets/images/Untitled_design__6_-removebg-preview (1).png" class="corner-flower bottom-right" alt="">
+
+            <h3 class="wedding-date">13 MAY & 14 MAY 2026</h3>
+            <p class="timer-label">CELEBRATION STARTS IN</p>
+            
+            <div id="countdown" class="timer">
+                <div class="timer-part"><div id="days">00</div><span>DAYS</span></div>
+                <div class="separator">:</div>
+                <div class="timer-part"><div id="hours">00</div><span>HOURS</span></div>
+                <div class="separator">:</div>
+                <div class="timer-part"><div id="minutes">00</div><span>MINS</span></div>
+                <div class="separator">:</div>
+                <div class="timer-part"><div id="seconds">00</div><span>SECS</span></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <img src="./assets/images/Edited-127.JPG.jpeg" alt="1"><img src="./assets/images/Edited-23.JPG.jpeg" alt="2">
+            <img src="./assets/images/Edited-55.JPG.jpeg" alt="3"><img src="./assets/images/IMG-20251231-WA0125.jpg.jpeg" alt="4">
+            <img src="./assets/images/IMG-20260223-WA0010(1).jpg.jpeg" alt="5"><img src="./assets/images/IMG_1203 (1).JPG.jpeg" alt="6">
+            <img src="./assets/images/Edited-127.JPG.jpeg" alt="1"><img src="./assets/images/Edited-23.JPG.jpeg" alt="2">
+            <img src="./assets/images/Edited-55.JPG.jpeg" alt="3"><img src="./assets/images/IMG-20251231-WA0125.jpg.jpeg" alt="4">
+        </div>
+    </div>
+
+    <section>
+        <h3 data-aos="fade-up" style="margin-bottom: 30px;">The Wedding Itinerary</h3>
+        
+        <div class="event-card video-card" data-aos="fade-up">
+            <video autoplay muted loop playsinline class="card-video">
+                <source src="./assets/images/Events/Trendyfi(1).mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+            <div class="event-content">
+                <div class="event-time">13 May 26 | 12:30 PM</div>
+                <h2>Mela Madness</h2>
+                <p>Carnival Theme Party <br> <i class="fas fa-map-marker-alt"></i> Marigold Lawn</p>
+            </div>
+        </div>
+
+        <div class="event-card video-card" data-aos="fade-up">
+            <video autoplay muted loop playsinline class="card-video">
+                <source src="./assets/images/Events/emanakhtar12_001.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+            <div class="event-content">
+                <div class="event-time">13 May 26 | 07:00 PM</div>
+                <h2>Glitz & Glam</h2>
+                <p>Sangeet & Engagement | <i class="fas fa-map-marker-alt"></i> Arista Banquet</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h3>Dress Code</h3>
+        <p style="font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 40px;">STYLE GUIDE FOR OUR GUESTS</p>
+        <div class="dresscode-container">
+            <div class="dresscode-row" data-aos="fade-right">
+                <div class="polaroid tilt-right"><img src="./assets/images/Events/Carnival (2).png" alt=""></div>
+                <div class="dresscode-text">
+                    <h4>Carnival</h4><p>Display of styles</p><p class="avoid-note">Pastel Hues</p>
+                    <div class="arrow"><img src="./assets/images/Arrow.png" alt=""></div>
+                </div>
+            </div>
+            <div class="dresscode-row reverse" data-aos="fade-left">
+                <div class="polaroid tilt-left"><img src="./assets/images/Events/Sangeet n Engagement .png" alt=""></div>
+                <div class="dresscode-text">
+                    <h4>Sangeet</h4><p>Dress to dazzle</p><p class="avoid-note">Shine & Glow</p>
+                    <div class="arrow2"><img src="./assets/images/Arrow2.png" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h3>Location</h3><p>Avadh Utopia, Vapi</p>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3741.054320421867!2d72.9348!3d20.354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDIxJzE0LjQiTiA3MsKwNTYnMDUuMyJF!5e0!3m2!1sen!2sin!4v1610000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <section>
+        <div class="map-container5"><img src="./assets/images/Thumbnail.png" alt=""></div>
+        <h3 class="cursive" style="margin-top: 40px; font-size: 3rem;">See You Soon!</h3>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // Heart Sparkle Logic
+        function createHeart() {
+            const container = document.getElementById('heart-fountain');
+            const heart = document.createElement('div');
+            heart.innerHTML = '<i class="fas fa-heart"></i>';
+            heart.className = 'heart-sparkle';
+            const startPos = Math.random() * 100;
+            const duration = 3 + Math.random() * 4;
+            heart.style.left = startPos + '%';
+            heart.style.setProperty('--duration', duration + 's');
+            heart.style.fontSize = (10 + Math.random() * 15) + 'px';
+            container.appendChild(heart);
+            setTimeout(() => heart.remove(), duration * 1000);
+        }
+        setInterval(createHeart, 400);
+
+        // Countdown Logic
+        const targetDate = new Date("May 13, 2026 12:30:00").getTime();
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const diff = targetDate - now;
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+            document.getElementById("days").innerText = d < 10 ? "0"+d : d;
+            document.getElementById("hours").innerText = h < 10 ? "0"+h : h;
+            document.getElementById("minutes").innerText = m < 10 ? "0"+m : m;
+            document.getElementById("seconds").innerText = s < 10 ? "0"+s : s;
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>

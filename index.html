@@ -454,6 +454,135 @@
             transform: scaleX(-1) rotate(-110deg);
             margin-top: 20px;
         }
+        .sparkle-container {
+    position: relative;
+    overflow: hidden;
+    padding: 80px 20px;
+    background: rgba(212, 175, 55, 0.03); /* Subtle gold tint */
+    border-radius: 15px;
+}
+
+.heart-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.invite-text {
+    position: relative;
+    z-index: 5; /* Ensure text is always on top */
+}
+
+/* The Heart Shape Sparkle */
+.heart-sparkle {
+    position: absolute;
+    bottom: -20px;
+    color: var(--gold);
+    font-size: 1.2rem;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+    opacity: 0;
+    animation: floatUp var(--duration) linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(0) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.8;
+        transform: translateY(-20%) scale(1) rotate(15deg);
+    }
+    80% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-120vh) scale(0.5) rotate(45deg);
+        opacity: 0;
+    }
+}
+.countdown-container {
+            position: relative;
+            border: 1px solid var(--gold);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 90%;
+            background: transparent;
+            overflow: visible; /* Important for flowers to overlap */
+            
+
+            
+        }
+
+        .corner-flower {
+            position: absolute;
+            width: 140px;
+            z-index: 10;
+            pointer-events: none;
+            filter: drop-shadow(0 0 8px rgba(0,0,0,0.6));
+        }
+        
+        .top-left { top: -85px; left: -45px; }
+        .bottom-right { bottom: -85px; right: -55px; }
+        /* --- MODERN LOCATION CARD --- */
+.location-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--gold);
+    border-radius: 20px;
+    padding: 40px 20px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.venue-logo img {
+    width: 100px;
+    /* filter: drop-shadow(0 0 5px var(--gold)); */
+}
+
+.venue-info h4 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.venue-info p {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.map-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(45deg, var(--dark-gold), var(--gold));
+    color: black;
+    text-decoration: none;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    transition: 0.3s transform ease, 0.3s box-shadow ease;
+    margin-top: 10px;
+}
+
+.map-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+.map-btn i {
+    font-size: 1.1rem;
+}
     </style>
 </head>
 
@@ -486,8 +615,10 @@
     </div>
 
     <div class="mantra">|| Om Shree Satnam Sakhi || <br>|| Radheshyam ||</div>
-
-    <section id="invite-content">
+    <section id="invite-content" class="sparkle-container">
+    <div id="heart-fountain" class="heart-container"></div>
+    
+    <div class="invite-text">
         <p>Dear Friends & Family</p>
         <br>
         <p style="font-size: 1.1rem; font-style: italic;">
@@ -498,11 +629,15 @@
         <p>They made it through the distance & now its time to make it official !!</p>
         <br>
         <p>Join us to celebrate their journey from miles apart to side by side !!</p>
-    </section>
+    </div>
+</section>
+    <section class="countdown-section">
 
-    <section>
-
+        
         <div class="countdown-container">
+            <img src="./assets/images/Untitled_design__5_-removebg-preview.png" class="corner-flower top-left" alt="">
+            <img src="./assets/images/Untitled_design__6_-removebg-preview (1).png" class="corner-flower bottom-right" alt="">
+
             <h3 style="margin-bottom: 10px;">13 May & 14 May 2026</h3>
             <p style="margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;">
                 Celebration starts in</p>
@@ -585,7 +720,7 @@
 
     </section>
 
-    <section>
+    <section style="overflow: hidden;">
         <h3 style="margin-bottom: 20px;">Dress Code</h3>
         <p style="font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 40px;">STYLE GUIDE FOR OUR GUESTS</p>
 
@@ -652,26 +787,25 @@
             </div>
         </div>
     </section>
-    <section>
-        <h3>Location</h3>
-        <p>Avadh Utopia, Vapi</p>
-        <div class="map-container">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3744.135763073722!2d72.936657!3d20.315357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0c2794c48914b%3A0xc622271815147395!2sAvadh%20Utopia%20Vapi!5e0!3m2!1sen!2sin!4v1700000000000"
-                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+   <section>
+    <h3 data-aos="fade-up">The Destination</h3>
+    <p style="font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 30px;">JOIN US AT</p>
+    
+    <div class="location-card" data-aos="zoom-in">
+        <div class="venue-logo">
+            <img src="./assets/images/Vector-Palace-PNG-Download-Image.png" alt="Venue Logo">
         </div>
-    </section>
-    <section>
-        <div class="details-grid">
-
-            <div class="detail-item">
-                <h3>RSVP</h3>
-                <p>Rajesh: +91 98765 43210</p>
-                <p>Suman: +91 91234 56789</p>
-            </div>
+        <div class="venue-info">
+            <h4>Avadh Utopia</h4>
+            <p>Vapi, Gujarat, India</p>
         </div>
-        <h3 class="cursive" style="margin-top: 40px; font-size: 3rem;">See You Soon!</h3>
-    </section>
+        <a href="https://maps.app.goo.gl/YourActualGoogleMapsLinkHere" target="_blank" class="map-btn">
+            <i class="fas fa-map-marked-alt"></i>
+            GET DIRECTIONS
+        </a>
+    </div>
+</section>
+    
 
     <section>
 
@@ -689,6 +823,33 @@
   });
 </script>
     <script>
+        function createHeart() {
+    const container = document.getElementById('heart-fountain');
+    const heart = document.createElement('div');
+    
+    // Use the FontAwesome heart icon
+    heart.innerHTML = '<i class="fas fa-heart"></i>';
+    heart.className = 'heart-sparkle';
+    
+    // Randomize position and timing
+    const startPos = Math.random() * 100; // Left to Right
+    const duration = 3 + Math.random() * 4; // 3 to 7 seconds
+    const size = 10 + Math.random() * 15; // 10px to 25px
+    
+    heart.style.left = startPos + '%';
+    heart.style.setProperty('--duration', duration + 's');
+    heart.style.fontSize = size + 'px';
+    
+    container.appendChild(heart);
+    
+    // Remove heart after animation to keep the page fast
+    setTimeout(() => {
+        heart.remove();
+    }, duration * 1000);
+}
+
+// Start the fountain
+setInterval(createHeart, 400);
         const targetDate = new Date("May 13, 2026 12:30:00").getTime();
         function updateCountdown() {
             const now = new Date().getTime();
